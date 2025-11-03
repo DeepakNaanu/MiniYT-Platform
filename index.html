@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniTube — demo YouTube-like UI</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <button id="menuBtn" aria-label="menu">☰</button>
+      <div class="logo">MiniTube</div>
+    </div>
+
+    <div class="search">
+      <input id="query" type="search" placeholder="Search" />
+      <button id="searchBtn">🔍</button>
+    </div>
+
+    <div class="actions">
+      <button id="uploadBtn" title="Upload">⬆️</button>
+      <button id="profileBtn" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav>
+        <a class="active">Home</a>
+        <a>Shorts</a>
+        <a>Subscriptions</a>
+        <hr/>
+        <a>Library</a>
+        <a>History</a>
+      </nav>
+    </aside>
+
+    <main class="main" id="main">
+      <section class="hero">
+        <h2>Recommended</h2>
+      </section>
+
+      <section id="videosGrid" class="videos-grid">
+        <!-- video cards injected by script.js -->
+      </section>
+
+      <div class="load-more-wrap">
+        <button id="loadMore">Load more</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Video modal / player -->
+  <div id="playerModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="closeModal">✕</button>
+      <div class="video-player">
+        <video id="player" controls preload="metadata">
+          <!-- src set by script -->
+        </video>
+      </div>
+      <div class="video-info">
+        <h3 id="videoTitle"></h3>
+        <div class="meta">
+          <div class="views" id="videoViews"></div>
+          <div class="actions-inline">
+            <button id="likeBtn">👍 <span id="likeCount">0</span></button>
+            <button id="subscribeBtn">Subscribe</button>
+          </div>
+        </div>
+        <p id="videoDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
